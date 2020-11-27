@@ -1,0 +1,78 @@
+html {
+  box-sizing: border-box;
+  background: #f7f5f5;
+  font-family: "helvetica neue";
+  font-size: 20px;
+  font-weight: 200;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+input {
+  width: 100%;
+  padding: 15px 20px;
+}
+
+.search-form {
+  max-width: 400px;
+  margin: 50px auto;
+}
+
+input.search {
+  color: grey;
+
+  margin: 0;
+  outline: 0;
+  border: none;
+  border: 1px solid #dfe1e5;
+  width: 120%;
+  left: -10%;
+  position: relative;
+  top: 10px;
+  z-index: 2;
+  border-radius: 5px;
+  font-size: 20px;
+  box-shadow: none;
+  transition: all 0.1s;
+}
+input.search::placeholder {
+  opacity: 0.5;
+  font-style: italic;
+}
+input.search:focus,
+input.search:hover {
+  color: black;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.09), inset 0 0 2px rgba(0, 0, 0, 0.19);
+}
+
+.suggestions {
+  margin: 0;
+  margin-top: 10px;
+  padding: 0;
+  position: relative;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.09), inset 0 0 2px rgba(0, 0, 0, 0.19);
+}
+
+.suggestions li {
+  background: white;
+  list-style: none;
+  border-bottom: 1px solid #d8d8d8;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  text-transform: capitalize;
+  cursor: default;
+}
+
+span.population {
+  font-size: 15px;
+}
+
+.hl {
+  background: #7bbde9;
+}
