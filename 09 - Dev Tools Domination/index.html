@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Console Tricks!</title>
+  </head>
+  <body>
+    <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+    <script>
+      const dogs = [
+        { name: "Snickers", age: 2 },
+        { name: "hugo", age: 8 },
+      ];
+      const p = document.querySelector("p");
+
+      function makeGreen() {
+        const p = document.querySelector("p");
+        p.style.color = "#BADA55";
+        p.style.fontSize = "50px";
+      }
+
+      // Regular
+      console.log("Hello");
+
+      // Interpolated
+      console.log("Hello I am a %s string!", "caca");
+
+      // Styled
+      console.log(
+        "%c I am some great text",
+        "font-size: 20px; background: red; text-shadow: 1px 1px blue; border-radius: 5px; padding: 5px;"
+      );
+
+      // warning!
+      console.warn("Attention !");
+
+      // Error :|
+      console.error("Eh merde");
+
+      // Info
+      console.info("Il y a du bleu dans le rouge");
+
+      // Testing
+      console.assert(
+        p.classList.contains("ouch"),
+        "La class du paragraphe ne contient pas 'ouch'!"
+      );
+
+      // clearing
+      console.clear();
+
+      // Viewing DOM Elements      // Pour voir toutes les propriétés de l'élements du DOM
+      console.log(p);
+      console.dir(p);
+      // console.clear();
+
+      // Grouping together
+      dogs.forEach((dog) => {
+        console.group(`${dog.name}`);
+        // console.groupCollapsed(`${dog.name}`); //Fermé par défaut
+
+        console.log(`This is ${dog.name}`);
+        console.log(`${dog.name} is ${dog.age} years old`);
+        console.log(`This is ${dog.name} is ${dog.age * 7} dog years old`);
+        console.groupEnd(`${dog.name}`);
+      });
+
+      // counting
+      // Compte les occurence en temps réel.
+      console.count("Suzanne");
+      console.count("Suzanne");
+      console.count("Hervé");
+      console.count("Suzanne");
+      console.count("Suzanne");
+      console.count("Suzanne");
+      console.count("Hervé");
+      console.count("Hervé");
+      console.count("Suzanne");
+      console.count("Suzanne");
+
+      // timing
+      console.time("fetching data");
+      fetch("https://api.github.com/users/shayreichert").then((data) =>
+        data.json().then((data) => {
+          console.timeEnd("fetching data");
+          console.log(data);
+        })
+      );
+
+      // Display in nice array an array
+      console.table(dogs);
+    </script>
+  </body>
+</html>
